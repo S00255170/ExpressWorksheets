@@ -30,6 +30,27 @@ getCars = async (_req: Request, res: Response): Promise<void> => {
    }
 };
 
+/**
+* @openapi
+* /cars/{id}:
+*   get:
+*     summary: Get a car by ID
+*     tags:
+*       - Cars
+*     parameters:
+*       - in: path
+*         name: id
+*         required: true
+*         schema:
+*           type: string
+*     responses:
+*       200:
+*         description: Car found
+*       404:
+*         description: Car not found
+*       500:
+*         description: Internal server error
+*/
 
 getCarById = async (req: Request, res: Response): Promise<void> => {
    try {
