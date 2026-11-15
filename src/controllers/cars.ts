@@ -66,6 +66,27 @@ getCarById = async (req: Request, res: Response): Promise<void> => {
    }
 };
 
+  /**
+ * @openapi
+ * /cars:
+ *   post:
+ *     summary: Create a new car
+ *     tags:
+ *       - Cars
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/CreateCarInput'
+ *     responses:
+ *       201:
+ *         description: Successfully created car
+ *       400:
+ *         description: Bad request
+ *       500:
+ *         description: Internal server error
+ */
 
 createCar = async (req: Request, res: Response): Promise<void> => {
    const validation = createCarZSchema.safeParse(req.body);
@@ -122,7 +143,7 @@ updateCar = async (req: Request, res: Response): Promise<void> => {
   *       500:
   *         description: Internal server error
   */
- 
+
 deleteCar = async (_req: Request, res: Response): Promise<void> => {
    try {
    const id = Array.isArray(_req.params.id) ? _req.params.id[0] : _req.params.id;
