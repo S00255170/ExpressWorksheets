@@ -1,4 +1,4 @@
-@endpoint = http://localhost:3001/api/v1/cars 
+@endpoint = http://localhost:3000/api/v1/cars 
 
 ### 
 # @name postACar
@@ -31,3 +31,8 @@ Content-Type: application/json
 
 PUT  {{endpoint}}/sillycarID HTTP/3.0 
 content-type: application/json 
+
+###
+GET http://localhost:3000/api/v1/cars HTTP/1.1
+content-type: application/json
+x-api-key: blahblah
